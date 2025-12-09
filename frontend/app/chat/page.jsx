@@ -53,23 +53,24 @@ export default function ChatPage() {
   }, []);
 
   useEffect(() => {
-    API.get("/api/auth/users")
+    API.get("/api/users")
       .then((res) => setUsers(res.data))
       .catch(() => {});
   }, []);
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen text-red">
       <Sidebar
-         users={users.filter(u => u._id !== me.id)} 
-        selectedUser={selectedUser} // ← энд заавал дамжуулна
+        users={users.filter((u) => u._id !== me.id)}
+        selectedUser={selectedUser} 
         onSelect={setSelectedUser}
       />
       <ChatWindow
         selectedUser={selectedUser}
         me={me}
-        messages={messages} // ← дамжуулж байна
-        setMessages={setMessages} // ← дамжуулж байна
+        socket={socket}
+        messages={messages} 
+        setMessages={setMessages} 
       />
     </div>
   );

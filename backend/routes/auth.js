@@ -25,12 +25,4 @@ router.post("/login", async (req, res) => {
   res.json({ token, user });
 });
 
-router.get("/users", async (req, res) => {
-  try {
-    const users = await User.find({ _id: { $ne: req.userId } }).select("-password");
-    res.json(users);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
 module.exports = router;

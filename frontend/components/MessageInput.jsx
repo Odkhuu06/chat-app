@@ -2,28 +2,39 @@
 import { useState } from "react";
 import API from "../utils/api";
 
-export default function MessageInput({ onSend }) {
+export default function MessageInput({ selectedUser, me, socket, setMessages }) {
   const [text, setText] = useState("");
-  const [file, setFile] = useState(null);
 
  const handleSend = async (e) => {
   e.preventDefault();
-  if (!selectedUser) return alert("Select a user");
+  if (!selectedUser || !text.trim()) return;
 
-  const message = {
-    senderId: me.id,
-    receiverId: selectedUser._id,
+  const msg = {
+    sender: me.id,
+    receiver: selectedUser._id,
     text,
-    image: imageUrl || null,
     createdAt: new Date().toISOString(),
   };
 
-  console.log("emitting", message);
-  socket.emit("send_message", message);
+  try {
+    const res = await API.post("/api/messages", msg);
 
-  // өөрийн UI-г update хийх
-  setMessages(prev => [...prev, message]);
-  setText("");
+    const completeMessage = {
+      ...res.data,
+      sender: me.id,
+      receiver: selectedUser._id
+    };
+
+    // ❗ Optimistic update ХАСАХ - socket listener л нэмнэ
+    // setMessages((prev) => [...prev, completeMessage]); // Энийг устгах
+
+    // Socket-оор БҮХ client-үүдэд илгээнэ
+    socket.emit("send_message", completeMessage);
+
+    setText("");
+  } catch (err) {
+    console.error("Sending message failed:", err.response?.data || err.message);
+  }
 };
 
   return (
@@ -34,11 +45,6 @@ export default function MessageInput({ onSend }) {
         onChange={(e) => setText(e.target.value)}
         placeholder="Message..."
         className="flex-1 border rounded px-3 py-2 mr-2"
-      />
-      <input
-        type="file"
-        onChange={(e) => setFile(e.target.files[0])}
-        className="mr-2"
       />
       <button
         type="submit"

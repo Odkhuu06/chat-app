@@ -31,28 +31,7 @@ export default function AuthPage() {
           {activeTab === "login" ? <LoginForm /> : <RegisterForm />}
         </div>
 
-        {/* <div className="flex gap-4 mb-8">
-          <button
-            onClick={() => handleTabChange("login")}
-            className={`flex-1 py-3 px-4 rounded-xl font-semibold transition-all duration-200 ${
-              activeTab === "login"
-                ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-600/40 transform scale-105"
-                : "bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-600"
-            }`}
-          >
-            Нэвтрэх
-          </button>
-          <button
-            onClick={() => handleTabChange("register")}
-            className={`flex-1 py-3 px-4 rounded-xl font-semibold transition-all duration-200 ${
-              activeTab === "register"
-                ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-600/40 transform scale-105"
-                : "bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-600"
-            }`}
-          >
-            Бүртгүүлэх
-          </button>
-        </div> */}
+
 
         <p className="text-center text-sm text-slate-600 dark:text-slate-400">
           {activeTab === "login" ? (

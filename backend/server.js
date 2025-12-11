@@ -21,6 +21,17 @@ app.use("/api/upload", require("./routes/upload"));
 // HTTP сервер
 const server = http.createServer(app);
 
+//cors
+const cors = require("cors");
+
+app.use(cors({
+  origin: [
+    "http://localhost:3000",  // Local development
+    "https://chat-app-noue.onrender.com"  // Production (Vercel URL)
+  ],
+  credentials: true
+}));
+
 // Socket.io
 const { Server } = require("socket.io");
 const io = new Server(server, { cors: { origin: "*" } });

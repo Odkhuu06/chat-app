@@ -15,8 +15,8 @@ export default function LoginForm() {
 
   const submit = async (e) => {
     e.preventDefault();
-    setLoading(true);
     setError("");
+    setLoading(true);
 
     try {
       const res = await API.post("/api/auth/login", { username, password });
@@ -30,9 +30,11 @@ export default function LoginForm() {
   };
 
   return (
-    <div>
+    <div className="w-full">
       {error && (
-        <div className="bg-red-100 text-red-700 p-2 rounded mb-3">{error}</div>
+        <div className="bg-red-100 text-red-700 p-2 rounded mb-3">
+          {error}
+        </div>
       )}
 
       <form onSubmit={submit} className="space-y-3">
@@ -41,24 +43,25 @@ export default function LoginForm() {
           required
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className="w-full border p-2 rounded"
+          className="w-full border border-gray-300 p-2 rounded dark:bg-gray-800 dark:text-white"
           placeholder="Username"
         />
+
         <input
           type="password"
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full border p-2 rounded"
+          className="w-full border border-gray-300 p-2 rounded dark:bg-gray-800 dark:text-white"
           placeholder="Password"
         />
 
         <button
           type="submit"
-          disabled={loading}
           className={`w-full py-2 rounded text-white ${
-            loading ? "bg-gray-400" : "bg-blue-600"
+            loading ? "bg-gray-400" : "bg-blue-600 hover:bg-blue-700"
           }`}
+          disabled={loading}
         >
           {loading ? "Түр хүлээнэ үү..." : "Нэвтрэх"}
         </button>

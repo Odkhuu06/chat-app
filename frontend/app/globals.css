@@ -2,15 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /* simple dark theme */
 /* Light default */
-body {
-  background-color: white;
-  color: black;
-}
-
-/* Dark theme */
-[data-theme="dark"] body {
-  background-color: black;
-  color: white;
-}

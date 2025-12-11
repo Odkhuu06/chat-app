@@ -8,7 +8,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// MongoDB холболт
 
   require("./config/db")();
 // API route
@@ -18,7 +17,7 @@ app.use("/api/messages", require("./routes/messages"));
 app.use("/api/upload", require("./routes/upload"));
 
 
-// HTTP сервер
+
 const server = http.createServer(app);
 
 const cors = require("cors");
@@ -31,7 +30,6 @@ app.use(cors({
   credentials: true
 }));
 
-// Socket.io
 const { Server } = require("socket.io");
 const io = new Server(server, { cors: { origin: "*" } });
 

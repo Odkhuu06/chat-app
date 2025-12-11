@@ -10,7 +10,7 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:3000",
-    "https://chat-app-bice-omega-78.vercel.app"  // ❗ Таны Vercel URL
+    "https://chat-app-odkhuu.vercel.app"  // ❗ Таны Vercel URL
   ],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],

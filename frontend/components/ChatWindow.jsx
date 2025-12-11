@@ -58,7 +58,7 @@ export default function ChatWindow({ selectedUser, me, socket, messages, setMess
   return (
     <div className="flex-1 flex flex-col border-l border-gray-300 dark:border-gray-700">
       {/* Header with user info and dark toggle */}
-      <div className="p-4 border-b border-gray-300 dark:border-gray-700 flex items-center justify-between bg-white dark:bg-gray-900">
+      <div className="p-4 border-b border-gray-300 dark:border-gray-700 flex items-center justify-between bg-white dark:bg-black">
         <div className="flex items-center">
           {selectedUser ? (
             <>
@@ -67,7 +67,7 @@ export default function ChatWindow({ selectedUser, me, socket, messages, setMess
                 className="w-8 h-8 rounded-full mr-2" 
                 alt="avatar"
               />
-              <span className="font-semibold text-gray-900 dark:text-white">
+              <span className="font-semibold text-gray-900 dark:text-gray-400">
                 {selectedUser.username}
               </span>
             </>
@@ -77,11 +77,11 @@ export default function ChatWindow({ selectedUser, me, socket, messages, setMess
         </div>
 
         {/* Dark mode toggle button */}
-        <DarkToggle />
+        <DarkToggle className="" />
       </div>
 
       {/* Messages area */}
-      <div className="flex-1 p-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+      <div className="flex-1 p-4 overflow-y-auto bg-gray-50 dark:bg-black">
         {messages?.map((m, i) => (
           <Message key={i} message={m} me={me} />
         ))}

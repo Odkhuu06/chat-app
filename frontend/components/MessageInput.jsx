@@ -38,13 +38,13 @@ export default function MessageInput({ selectedUser, me, socket, setMessages }) 
 };
 
   return (
-    <form onSubmit={handleSend} className="flex p-2 border-t border-gray-300">
+    <form onSubmit={handleSend} className="flex p-2 border-t border-gray-300 ">
       <input
         type="text"
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Message..."
-        className="flex-1 border rounded px-3 py-2 mr-2"
+        className="flex-1 border rounded px-3 py-2 mr-2 text-black"
       />
       <button
         type="submit"

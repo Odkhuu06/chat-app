@@ -33,7 +33,7 @@ export default function DarkToggle() {
   return (
     <button
       onClick={toggle}
-      className="p-5 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+      className="p-2 rounded bg-white dark:bg-black hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors rounded-3xl"
     >
       {theme === "dark" ? (
         /* ☀️ Light Icon */

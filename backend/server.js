@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const Message = require("./models/Message");
 const app = express();
-app.use(cors());
 app.use(express.json());
 
 
@@ -25,7 +24,7 @@ const cors = require("cors");
 app.use(cors({
   origin: [
     "http://localhost:3000",  // Local development
-    "https://chat-app-noue.onrender.com"  // Production (Vercel URL)
+    "https://chat-app-noue.onrender.com" 
   ],
   credentials: true
 }));
@@ -42,7 +41,6 @@ io.on("connection", (socket) => {
   });
 
   socket.on("send_message", async (msg) => {
-    // Бүх connected clients-д дамжуулна
     io.emit("receive_message", msg);
   });
 

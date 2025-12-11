@@ -2,7 +2,6 @@ const express = require("express");
 const Message = require("../models/Message");
 const router = express.Router();
 
-// Message хадгалах
 router.post("/", async (req, res) => {
   try {
     const msg = await Message.create(req.body);
@@ -21,7 +20,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Хоёр хэрэглэгчийн chat-г авах
 router.get("/:user1/:user2", async (req, res) => {
   const { user1, user2 } = req.params;
   try {

@@ -23,7 +23,8 @@ export default function LoginForm() {
       saveToken(res.data.token);
       router.push("/chat");
     } catch (err) {
-      setError(err?.response?.data || "Login failed");
+    setError(err?.response?.data?.message || "Login failed");
+
     } finally {
       setLoading(false);
     }

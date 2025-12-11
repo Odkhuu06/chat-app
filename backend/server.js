@@ -23,7 +23,7 @@ const server = http.createServer(app);
 app.use(cors({
   origin: [
     "http://localhost:3000",  
-    "https://chat-app-noue.onrender.com" 
+    "chat-app-bice-omega-78.vercel.app" 
   ],
   credentials: true
 }));

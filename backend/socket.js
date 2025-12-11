@@ -9,8 +9,8 @@ module.exports = (server) => {
     console.log("Socket connected:", socket.id);
 
     socket.on("join", async (userId) => {
-      socket.userId = userId;            // disconnect-д хэрэгтэй
-      socket.join(userId);              // user-ийн room-д join
+      socket.userId = userId;          
+      socket.join(userId);       
       console.log("socket joined room:", userId);
       await User.findByIdAndUpdate(userId, { online: true });
       const user = await User.findById(userId).select("-password");

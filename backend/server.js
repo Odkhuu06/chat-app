@@ -9,7 +9,7 @@ app.use(express.json());
 
 
   require("./config/db")();
-// API route
+
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/users", require("./routes/users"));
 app.use("/api/messages", require("./routes/messages"));
@@ -19,11 +19,10 @@ app.use("/api/upload", require("./routes/upload"));
 
 const server = http.createServer(app);
 
-const cors = require("cors");
 
 app.use(cors({
   origin: [
-    "http://localhost:3000",  // Local development
+    "http://localhost:3000",  
     "https://chat-app-noue.onrender.com" 
   ],
   credentials: true

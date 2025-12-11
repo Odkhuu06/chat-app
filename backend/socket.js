@@ -19,7 +19,7 @@ module.exports = (server) => {
 
     socket.on("send_message", (data) => {
       console.log("send_message received on server:", data);
-      // data must contain: { senderId, receiverId, text, image? }
+   
       // send to receiver's room
       io.to(data.receiverId).emit("receive_message", data);
       // also optionally emit back to sender so their UI updates

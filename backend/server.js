@@ -21,7 +21,6 @@ app.use("/api/upload", require("./routes/upload"));
 // HTTP сервер
 const server = http.createServer(app);
 
-//cors
 const cors = require("cors");
 
 app.use(cors({

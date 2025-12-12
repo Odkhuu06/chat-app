@@ -58,10 +58,13 @@ export default function ChatPage() {
       .catch(() => {});
   }, []);
 
+  
+
   return (
     <div className="flex h-screen text-red">
       <Sidebar
         users={users.filter((u) => u._id !== me.id)}
+        me={users.filter((u) => u._id === me.id)}
         selectedUser={selectedUser} 
         onSelect={setSelectedUser}
       />

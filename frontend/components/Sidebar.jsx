@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Sidebar({ users, selectedUser, onSelect, me }) {
@@ -23,11 +24,12 @@ export default function Sidebar({ users, selectedUser, onSelect, me }) {
       )
     );
   };
-  
+
   return (
-    <div className="w-80 border-r border-gray-300 dark:border-gray-700 flex flex-col bg-white dark:bg-black">
+    <div className="w-80 border-r border-gray-300 dark:border-gray-700 flex flex-col bg-white dark:bg-black gap-y-2 px-2">
       {/* Header with current user info */}
       <div className="p-4 border-b border-gray-300 dark:border-gray-700 bg-white dark:bg-black ">
+        <Link href={"/profile"}>
         <div className="flex items-center">
           <img
             src={me[0]?.avatar}
@@ -41,6 +43,12 @@ export default function Sidebar({ users, selectedUser, onSelect, me }) {
             <p className="text-sm text-gray-500 dark:text-gray-400">Online</p>
           </div>
         </div>
+        </Link>
+        {/* <button
+          onClick={() => (window.location.href = "/profile")}
+          className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 bg-white transition-colors"
+          title="Profile"
+        ></button> */}
       </div>
       <div className="relative">
         <input

@@ -2,7 +2,7 @@
 import "@/app/globals.css";
 
 export const metadata = {
-  title: "My App",
+  title: "chat-app",
   description: "Description",
 };
 

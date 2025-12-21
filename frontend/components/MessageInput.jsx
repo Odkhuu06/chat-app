@@ -19,8 +19,6 @@ export default function MessageInput({
     const file = e.target.files?.[0];
     if (!file) return;
 
-    // File size шалгах (5MB max)
-    // File size шалгах (2MB max base64-д)
     if (file.size > 2 * 1024 * 1024) {
       alert("Image size must be less than 2MB");
       return;

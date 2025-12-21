@@ -15,13 +15,21 @@ export default function Message({ message, me }) {
               : "bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded-bl-none"
           }`}
         >
-          {message.text && <p className="text-sm">{message.text}</p>}
+          {/* Image */}
           {message.image && (
             <img
               src={message.image}
-              alt="img"
-              className="mt-1 max-w-full rounded"
+              alt="Shared image"
+              className="rounded-lg max-w-full cursor-pointer hover:opacity-90 transition-opacity"
+              onClick={() => window.open(message.image, '_blank')}
             />
+          )}
+          
+          {/* Text */}
+          {message.text && (
+            <p className={`text-sm ${message.image ? 'mt-2' : ''}`}>
+              {message.text}
+            </p>
           )}
         </div>
         

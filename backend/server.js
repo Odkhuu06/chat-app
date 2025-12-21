@@ -35,10 +35,10 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server, { 
   cors: { 
-    origin: [
-      "http://localhost:3000",
-      "https://chat-app-bice-omega-78.vercel.app"  // ❗ Таны Vercel URL
-    ],
+ origin: [
+  "http://localhost:3000",
+  "https://chat-app-odkhuu.vercel.app",
+],
     credentials: true
   } 
 });
